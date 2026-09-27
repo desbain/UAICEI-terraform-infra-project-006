@@ -8,3 +8,11 @@ resource "aws_vpc" "desbain-vpc" {
   })
 }
 
+#creating internet-gateway ######################################
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.desbain-vpc.id
+
+ tags = merge(var.tags, {
+    Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-igw"
+  })
+}
