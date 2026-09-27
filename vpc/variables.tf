@@ -1,12 +1,12 @@
 variable "vpc_cidr_block" {
-    description = "cidr block of VPC"
-    type = string
-    
+  description = "cidr block of VPC"
+  type        = string
+
 }
 
 
 variable "tags" {
-    description = "list of local values"
-    type = map(string)
-  
+  description = "list of local values"
+  type        = map(string)
+
 }
