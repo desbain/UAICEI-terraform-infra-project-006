@@ -20,6 +20,7 @@ module "vpc" {
   tags               = local.project_tags
   public_cidr_block  = var.public_cidr_block
   private_cidr_block = var.private_cidr_block
+  db_cidr_block      = var.db_cidr_block
   availability_zone  = var.availability_zone
 
 }
