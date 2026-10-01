@@ -5,13 +5,19 @@ variable "vpc_cidr_block" {
 }
 
 variable "public_cidr_block" {
-  description = "cidr block of public subnet az2a"
+  description = "cidr block of public subnet"
   type        = list(string)
 
 }
 
 variable "private_cidr_block" {
-  description = "cidr block of public subnet az2a"
+  description = "cidr block of private subnet"
+  type        = list(string)
+
+}
+
+variable "db_cidr_block" {
+  description = "cidr block of database subnet"
   type        = list(string)
 
 }

@@ -60,3 +60,26 @@ resource "aws_subnet" "private-subnet-az2b" {
     Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-private_subnet-az2b"
   })
 }
+
+
+# creating database subnets az2a ################################
+
+resource "aws_subnet" "db_subnet-az2a" {
+  vpc_id     = aws_vpc.desbain-vpc.id
+  cidr_block = var.db_cidr_block[0]
+  availability_zone = var.availability_zone[0]
+   tags = merge(var.tags, {
+    Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-db_subnet-az2a"
+  })
+}
+
+# creating database subnets az2b ################################
+
+resource "aws_subnet" "db_subnet-az2b" {
+  vpc_id     = aws_vpc.desbain-vpc.id
+  cidr_block = var.db_cidr_block[1]
+  availability_zone = var.availability_zone[1]
+   tags = merge(var.tags, {
+    Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-db_subnet-az2b"
+  })
+}
