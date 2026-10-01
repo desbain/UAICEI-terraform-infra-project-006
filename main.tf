@@ -1,7 +1,5 @@
 provider "aws" {
   region = "us-east-2"
-
-
 }
 
 terraform {
@@ -15,10 +13,13 @@ terraform {
   }
 }
 
-#creating vpc module ############
+#creating vpc module ##############################################
 module "vpc" {
   source         = "./vpc"
   vpc_cidr_block = var.vpc_cidr_block
   tags           = local.project_tags
+  public_cidr_block = var.public_cidr_block
+  private_cidr_block = var.private_cidr_block
+  availability_zone = var.availability_zone
 
 }
