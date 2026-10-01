@@ -6,18 +6,18 @@ variable "vpc_cidr_block" {
 
 variable "public_cidr_block" {
   description = "cidr block of public subnet az2a"
-  type = list(string)
-  
+  type        = list(string)
+
 }
 
 variable "private_cidr_block" {
   description = "cidr block of public subnet az2a"
-  type = list(string)
-  
+  type        = list(string)
+
 }
 
 variable "availability_zone" {
-   description = "availability zone of public subnet az2a"
-  type = list(string)
-  
+  description = "availability zone of public subnet az2a"
+  type        = list(string)
+
 }
