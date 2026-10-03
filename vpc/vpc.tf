@@ -102,7 +102,7 @@ resource "aws_route_table" "public_route_tb_az2a" {
 # creating route table association for pubic route table az2a ##############
 resource "aws_route_table_association" "public_rt_assoc_az2a" {
   subnet_id      = aws_subnet.public-subnet-az2a.id
-  route_table_id = aws_route_table.public_route_tb_az2a
+  route_table_id = aws_route_table.public_route_tb_az2a.id
 }
 
 #creating public route table az2b########################################
@@ -123,7 +123,7 @@ resource "aws_route_table" "public_route_tb_az2b" {
 # creating route table association for pubic route table az2b ##############
 resource "aws_route_table_association" "public_rt_assoc-az2b" {
   subnet_id      = aws_subnet.public-subnet-az2b.id
-  route_table_id = aws_route_table.public_route_tb_az2b
+  route_table_id = aws_route_table.public_route_tb_az2b.id
 }
 
 
