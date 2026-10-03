@@ -86,7 +86,7 @@ resource "aws_subnet" "db_subnet-az2b" {
 
 #creating public route table az2a ########################################
 
-resource "aws_route_table" "public_route_tb" {
+resource "aws_route_table" "public_route_tb_az2a" {
   vpc_id = aws_vpc.desbain-vpc.id
 
   route {
@@ -95,19 +95,19 @@ resource "aws_route_table" "public_route_tb" {
   }
 
   tags = merge(var.tags, {
-    Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-public_rt"
+    Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-public_rt_az2a"
   })
 }
 
-# creating route table association for pubic route table ##############
-resource "aws_route_table_association" "public_rt_assoc" {
+# creating route table association for pubic route table az2a ##############
+resource "aws_route_table_association" "public_rt_assoc_az2a" {
   subnet_id      = aws_subnet.public-subnet-az2a.id
   route_table_id = aws_route_table.public_route_tb.id
 }
 
-#creating public route table ########################################
+#creating public route table az2b########################################
 
-resource "aws_route_table" "public_route_tb" {
+resource "aws_route_table" "public_route_tb_az2b" {
   vpc_id = aws_vpc.desbain-vpc.id
 
   route {
@@ -116,20 +116,17 @@ resource "aws_route_table" "public_route_tb" {
   }
 
   tags = merge(var.tags, {
-    Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-public_rt"
+    Name = "${var.tags["project"]}-${var.tags["application"]}-${var.tags["environment"]}-desbain-public_rt_az2b"
   })
 }
 
-# creating route table association for pubic route table ##############
-resource "aws_route_table_association" "public_rt_assoc-az2a" {
-  subnet_id      = aws_subnet.public-subnet-az2a.id
-  route_table_id = aws_route_table.public_route_tb.id
-}
-
+# creating route table association for pubic route table az2b ##############
 resource "aws_route_table_association" "public_rt_assoc-az2b" {
   subnet_id      = aws_subnet.public-subnet-az2b.id
   route_table_id = aws_route_table.public_route_tb.id
 }
+
+
 
 #creating elastic ip address for nat gateway ##########################################
 resource "aws_eip" "az2a_eip" {
@@ -181,7 +178,7 @@ resource "aws_route_table_association" "db_subnet_assoc-az2a" {
   route_table_id = aws_route_table.private_route_tb_az2a.id
 }
 
-#creating private subnet for az2b ########################################
+#creating private subnet for az2b ###########################################################
 
 #creating elastic ip address for nat gateway az2b ##########################################
 resource "aws_eip" "az2b_eip" {
