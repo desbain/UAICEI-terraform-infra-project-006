@@ -13,14 +13,14 @@ variable "tags" {
 
 variable "public_cidr_block" {
   description = "cidr block of public subnet az2a"
-  type = list(string)
-  
+  type        = list(string)
+
 }
 
 variable "private_cidr_block" {
   description = "cidr block of private subnet az2a"
-  type = list(string)
-  
+  type        = list(string)
+
 }
 
 variable "db_cidr_block" {
@@ -30,7 +30,7 @@ variable "db_cidr_block" {
 }
 
 variable "availability_zone" {
-   description = "availability zone of public  and private subnet "
-  type = list(string)
-  
+  description = "availability zone of public  and private subnet "
+  type        = list(string)
+
 }

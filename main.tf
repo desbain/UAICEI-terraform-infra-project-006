@@ -24,3 +24,15 @@ module "vpc" {
   availability_zone  = var.availability_zone
 
 }
+
+# creating EC2 module ########################################
+module "ec2" {
+  source        = "./EC2"
+  ami_id        = var.ami_id
+  tags          = local.project_tags
+  vpc_id        = module.vpc.vpc_id
+  instance_type = var.instance_type
+  subnet_id     = module.vpc.subnet_id
+  key_name      = var.key_name
+
+}

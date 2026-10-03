@@ -27,3 +27,19 @@ variable "availability_zone" {
   type        = list(string)
 
 }
+
+variable "ami_id" {
+  description = "ami of ec2 instance"
+  type        = string
+}
+
+variable "instance_type" {
+  description = "type of instance"
+  type        = string
+}
+
+variable "key_name" {
+  description = "key for bastion host"
+  type        = string
+
+}
