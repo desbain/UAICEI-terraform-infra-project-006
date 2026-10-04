@@ -19,8 +19,18 @@ variable "instance_type" {
   type        = string
 }
 
-variable "subnet_id" {
+variable "public_subnet_az2a_id" {
   description = "public subnet for bastion host"
+
+}
+
+variable "private_subnet_az2a_id" {
+  description = "private subnet for private_server"
+
+}
+
+variable "private_subnet_az2b_id" {
+  description = "private subnet for private_server"
 
 }
 

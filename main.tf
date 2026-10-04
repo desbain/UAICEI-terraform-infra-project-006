@@ -27,12 +27,15 @@ module "vpc" {
 
 # creating EC2 module ########################################
 module "ec2" {
-  source        = "./EC2"
-  ami_id        = var.ami_id
-  tags          = local.project_tags
-  vpc_id        = module.vpc.vpc_id
-  instance_type = var.instance_type
-  subnet_id     = module.vpc.subnet_id
-  key_name      = var.key_name
+  source                 = "./EC2"
+  ami_id                 = var.ami_id
+  tags                   = local.project_tags
+  vpc_id                 = module.vpc.vpc_id
+  instance_type          = var.instance_type
+  public_subnet_az2a_id  = module.vpc.public_subnet_az2a_id
+  private_subnet_az2a_id = module.vpc.private_subnet_az2a_id
+  private_subnet_az2b_id = module.vpc.private_subnet_az2b_id
+  key_name               = var.key_name
 
 }
+
